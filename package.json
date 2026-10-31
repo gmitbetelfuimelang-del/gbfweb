@@ -1,0 +1,29 @@
+{
+  "name": "gmit-betel-fuimelang",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Situs profil resmi GMIT Betel Fuimelang — Gereja Masehi Injili di Timor, Desa Lembur Tengah, Kabupaten Alor, NTT.",
+  "keywords": [
+    "GMIT",
+    "Betel Fuimelang",
+    "gereja",
+    "Alor",
+    "NTT",
+    "situs jemaat"
+  ],
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "python3 -m http.server 8080 --bind 0.0.0.0",
+    "serve": "npx --yes serve . -l 8080",
+    "check": "node scripts/check-site.js",
+    "build:sitemap": "node scripts/build-sitemap.js",
+    "build:single": "python3 scripts/build-single-file.py",
+    "build": "npm run build:sitemap && npm run build:single && npm run check",
+    "deploy:netlify": "npx --yes netlify-cli deploy --prod --dir .",
+    "set-domain": "bash scripts/set-domain.sh",
+    "push:github": "bash scripts/push-ke-github.sh"
+  }
+}

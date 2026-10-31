@@ -1,0 +1,19 @@
+{
+  "name": "GMIT Betel Fuimelang",
+  "short_name": "GMIT Betel",
+  "description": "Situs resmi GMIT Betel Fuimelang — Gereja Masehi Injili di Timor, Desa Lembur Tengah, Kabupaten Alor, NTT.",
+  "lang": "id-ID",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f6fafc",
+  "theme_color": "#1c6b8a",
+  "categories": ["lifestyle", "education", "social"],
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

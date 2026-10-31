@@ -1,0 +1,20 @@
+# robots.txt — GMIT Betel Fuimelang
+# Semua halaman boleh diindeks mesin pencari.
+
+User-agent: *
+Allow: /
+Disallow: /scripts/
+Disallow: /.github/
+
+# Googlebot: beri akses penuh ke aset agar rendering optimal
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI crawler (opsional: hapus blok ini bila ingin diblokir)
+User-agent: GPTBot
+Allow: /
+
+Sitemap: https://gmit-betel-fuimelang.netlify.app/sitemap.xml

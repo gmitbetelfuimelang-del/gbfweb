@@ -1,0 +1,78 @@
+# ============================================================
+# Konfigurasi deploy Netlify — GMIT Betel Fuimelang
+# Situs statis murni: tidak perlu build command.
+# ============================================================
+
+[build]
+  publish = "."
+  command = ""
+
+# --- Header keamanan & cache ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:; media-src 'self' https:; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+
+# --- Cache jangka panjang untuk aset statis ---
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/audio/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+    Accept-Ranges = "bytes"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+# --- Redirect halaman umum ---
+[[redirects]]
+  from = "/beranda"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/jadwal"
+  to = "/#jadwal"
+  status = 301
+
+[[redirects]]
+  from = "/doa"
+  to = "/#doa"
+  status = 301
+
+[[redirects]]
+  from = "/renungan"
+  to = "/renungan.html"
+  status = 301
+
+[[redirects]]
+  from = "/kontak"
+  to = "/#kontak"
+  status = 301
+
+# --- 404 kustom ---
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
